@@ -5,7 +5,8 @@ const App = () => {
   return (
     <>
       <h1>Hello</h1>
-      <p>React writer</p>
+      <p>React write.</p>
+      <p>first commit from sandbox</p>
     </>
   );
 };
