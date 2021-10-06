@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import ColorfullMessage from "./compornents/ColorfullMessage";
 
 const App = () => {
@@ -11,8 +11,21 @@ const App = () => {
   const swichFaceShow = () => {
     faceShowFunc(!faceShowFlag);
   };
-  if (num && num % 3 === 0) faceShowFlag || faceShowFunc(true);
-  else faceShowFlag && faceShowFunc(false);
+  useEffect(() => {
+    console.log("first rendaring.");
+  }, []);
+  /* faceShowFlagが第二引数にあるためwarningが出るが、 */
+  /* 今回はnumだけに注目させるため不要 */
+  /* (1行目に下記をwarningをオフにする設定を記述、コメント毎) */
+  /* eslint react-hooks/exhaustive-deps: off */
+  /* 場所だけの場合は下記 */
+  /* eslint-disable-next-line react-hooks/exhaustive-deps */
+  useEffect(() => {
+    console.log("num change!");
+    if (num && num % 3 === 0) faceShowFlag || faceShowFunc(true);
+    else faceShowFlag && faceShowFunc(false);
+  }, [num]);
+
   /* returnできる要素は親に一つだけ */
   /* 不要なタグを避けるために<React.Fragment>か<>を使うことで、無用な表記を避けれる */
   return (
