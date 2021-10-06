@@ -1,6 +1,6 @@
 import React from "react";
 
-const ColorfullMessage = (props) => {
+export const ColorfullMessage = (props) => {
   // console.group("ColorfullMessage");
   // console.log(props);
   // console.groupEnd("ColorfullMessage");
@@ -13,4 +13,4 @@ const ColorfullMessage = (props) => {
   return <p style={colorStyle}>{message || children}</p>;
 };
 
-export default ColorfullMessage;
+// export default ColorfullMessage;
